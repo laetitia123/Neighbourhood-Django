@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %} 
+{{ block.super}}
+
+
+<div class="container">
+    <!-- welcome to -->
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-sm-4">    <img src="{{user_object.profile.profile_picture.url}}" stye="padding-left:400px"class="img-circle"  width="152" height="152"
+        class="rounded-circle border userimage">
+</div>
+        <div class="col-sm-4"style="margin-left:-200px;">
+    <a style="vertical-align: middle;color:black;font-size:34px;">{{user_object.username}}</a>
+    <a href="{%  url 'edit' %}">
+            <button class="editbtn" style="  background-color: Transparent;
+            background-repeat:no-repeat;
+        
+            cursor:pointer;
+            overflow: hidden;
+           height:40px;width:120px;color:black;">
+                <span class="edittext"style="font-size:16px" >Edit Profile</span>
+            </button><i class="fa fa-sun-o"style="font-size:30px;color:black;margin-left:20px;" ></i>
+        </a>
+        <br>
+        <span>Bio  {{ user_object.profile.bio }}</span>
+        <br>
+        <strong >{{ users|length}}</strong> following</i>
+        <strong >{{ users|length}}</strong> followers</i>
+        <strong >{{ users|length}}</strong> posts</i>
+        <br>
+        
+        
+</div>
+    
+            </div>
+
+    
+
+   
+
+</div>
+
+<hr>
+
+<div class="container">
+    <div class="row">
+
+        {% for user_object in pic_images %}
+        <div class="col-md-4">
+    <img src="{{user_object.image.url}}"class="image-responsive" width="350" style="height:200px;margin-top:20px">
+</a>
+</div>
+{% endfor %}
+
+</div>
+
+</div>         
+</div>
+{% endblock %}
