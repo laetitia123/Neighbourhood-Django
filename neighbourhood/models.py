@@ -44,10 +44,10 @@ class Profile(models.Model):
     neighbour=models.ForeignKey(Neighbour,null=True)
     
 
-#     @classmethod
-#     def search(cls,username):
-#         profiles=cls.objects.filter(user__username__icontains=username)
-#         return profiles
+    @classmethod
+    def search(cls,username):
+        profiles=cls.objects.filter(user__username__icontains=username)
+        return profiles
 
 # class Comment(models.Model):
 #     comment= models.TextField()
