@@ -67,8 +67,8 @@ class Business(models.Model):
     bussiness= models.CharField(max_length =60)
     email= models.CharField(max_length =60)
     description = models.CharField(max_length =60)
-#     date_post= models.DateTimeField(max_length =60)
-#     location = models.CharField(max_length =60)
+    date_post= models.DateTimeField(max_length =60)
+    location = models.CharField(max_length =60)
     
 #     def create_business(self):
 #         self.save()
