@@ -70,11 +70,11 @@ class Business(models.Model):
     date_post= models.DateTimeField(max_length =60)
     location = models.CharField(max_length =60)
     
-#     def create_business(self):
-#         self.save()
+    def create_business(self):
+        self.save()
 
-#     def delete_business(self):
-#         self.delete()
+    def delete_business(self):
+        self.delete()
 
 #     @classmethod
 #     def get_location_business(cls,location):
