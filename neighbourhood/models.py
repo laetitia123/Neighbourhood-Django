@@ -38,8 +38,8 @@ class Neighbour(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile', null=True)
     Name = models.TextField(default="Any")
-#     profile_picture = models.ImageField(
-#         upload_to='users/', default='users/user.png')
+    profile_picture = models.ImageField(
+        upload_to='users/', default='users/user.png')
 #     bio = models.TextField(default="Welcome !")
 #     neighbour=models.ForeignKey(Neighbour,null=True)
     
