@@ -49,10 +49,10 @@ class Profile(models.Model):
         profiles=cls.objects.filter(user__username__icontains=username)
         return profiles
 
-# class Comment(models.Model):
-#     comment= models.TextField()
-#     photo = models.ForeignKey(Neighbour, on_delete=models.CASCADE,null=True)
-#     posted_by=models.ForeignKey(Profile,on_delete=models.CASCADE,null=True)
+class Comment(models.Model):
+    comment= models.TextField()
+    photo = models.ForeignKey(Neighbour, on_delete=models.CASCADE,null=True)
+    posted_by=models.ForeignKey(Profile,on_delete=models.CASCADE,null=True)
 
 #     def __str__(self):
 #         return self.posted_by
