@@ -90,8 +90,8 @@ class Post(models.Model):
     post_hood = models.ForeignKey('Neighbour',on_delete=models.CASCADE)
     posted_on = models.DateTimeField(auto_now_add=True)
 
-#     def __str__(self):
-#         return f'{self.title},{self.post_hood.neighborhood_name}'
+    def __str__(self):
+        return f'{self.title},{self.post_hood.neighborhood_name}'
 
 # class Contact(models.Model):
 #     name = models.CharField(max_length=30)
