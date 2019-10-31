@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+<!-- {% extends 'base.html' %}
 {% load bootstrap4 %}
 {% block content %} 
 {{ block.super}}
@@ -8,34 +8,21 @@
     
 
   {% for image in images %}
-  <div class="row">
+  <div class="row" style=margin-top:150px;>
   
-    <div class="col-sm-3"></div>
+   
   
   
-      <div class="col-sm-6" style="border:1px solid whitesmoke;padding-top:20px;" >
+      <div class="col-sm-4" style="padding-top:20px;" >
          
-          
-              <img src="{{user.profile.profile_picture.url}}" class="img-circle"  width="32" height="32">
-              
-              <strong style="color: #333333;cursor: pointer">{{user.profile.Name}}</strong>
-              <p style="margin-left:520px;margin-top:-50px;font-size:30px;">...</p>
-         
-        <img src="{{image.image.url}} " style="margin-bottom:20px;height:500px"class="img-responsive"  with="200" alt="Image">
-        <!-- alt="{{image.user.user.username}}" width="30" height="30"> -->
-    <p>  <strong style="color: #333333;cursor: pointer">{{user.profile.Name}}</strong>  {{image.caption}}</p>
-    <a href="{% url 'like' id=image.id%}"><i class="fa fa-heart-o" style="color: black;size: 150px;"></i></a>
-    <a href="{% url 'comment' image.id %}"><i class="fa fa-comment-o" style="color: black;size: 150px;"></i></a> 
-    <br>
-    <!-- <a  class="btn" href="{% url 'like' id=image.id%}" > -->
-        <p >{{image.likes}} Likes</p>
+        
+             <p>{{image.location}} </p> 
+             <p>{{image.name}} </p> 
+        <img src="{{image.image.url}} " style="margin-bottom:20px;height:300px"class="img-responsive"  width="400" alt="Image">
     
-    </a>
-  {% for com in image.comment_set.all %}
-                <p>comment:{{com.comment}}</p>
-                {% endfor %}
-              <hr>
-              <hr>
+    
+
+  
                        
                        
     </div>
@@ -55,4 +42,4 @@
   .container{
     background-color:black;
   }
-</style>
+</style> -->
