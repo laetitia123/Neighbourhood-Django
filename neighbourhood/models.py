@@ -54,13 +54,13 @@ class Comment(models.Model):
     photo = models.ForeignKey(Neighbour, on_delete=models.CASCADE,null=True)
     posted_by=models.ForeignKey(Profile,on_delete=models.CASCADE,null=True)
 
-#     def __str__(self):
-#         return self.posted_by
+    def __str__(self):
+        return self.posted_by
     
 
-#     def get_comment(self,id):
-#         comments=Comment.objects.filter(image_id=id)
-#         return comments
+    def get_comment(self,id):
+        comments=Comment.objects.filter(image_id=id)
+        return comments
 
 # class Business(models.Model):
 #     own= models.CharField(max_length =60)
