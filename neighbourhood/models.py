@@ -93,11 +93,11 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.title},{self.post_hood.neighborhood_name}'
 
-# class Contact(models.Model):
-#     name = models.CharField(max_length=30)
-#     contacts = models.CharField(max_length=20)
-#     email = models.EmailField()
-#     neighborhood_contact = models.ForeignKey('Neighbour',on_delete=models.CASCADE)
+class Contact(models.Model):
+    name = models.CharField(max_length=30)
+    contacts = models.CharField(max_length=20)
+    email = models.EmailField()
+    neighborhood_contact = models.ForeignKey('Neighbour',on_delete=models.CASCADE)
 
-#     # def __str__(self):
-#         # return f'{self.name},{self.email}'
+    # def __str__(self):
+        # return f'{self.name},{self.email}'
