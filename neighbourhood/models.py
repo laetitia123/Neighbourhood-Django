@@ -83,9 +83,9 @@ class Business(models.Model):
 
    
 
-# class Post(models.Model):
-#     title = models.CharField(max_length=40)
-#     post_description = HTMLField()
+class Post(models.Model):
+    title = models.CharField(max_length=40)
+    post_description = HTMLField()
 #     posted_by = models.ForeignKey(User,on_delete=models.CASCADE)
 #     post_hood = models.ForeignKey('Neighbour',on_delete=models.CASCADE)
 #     posted_on = models.DateTimeField(auto_now_add=True)
