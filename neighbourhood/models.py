@@ -8,9 +8,9 @@ from django.db.models.signals import post_save
 class Neighbour(models.Model):
     name = models.CharField(max_length =60)
     location = models.CharField(max_length =60)
-    caption= HTMLField()
-    profile = models.ForeignKey(User,on_delete=models.CASCADE)
-    count=models.CharField(default=0,blank=True)
+    # caption= HTMLField()
+    # profile = models.ForeignKey(User,on_delete=models.CASCADE)
+    count=models.IntegerField(default=0,blank=True)
     image = models.ImageField(upload_to = 'images/')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='images')
     
@@ -41,7 +41,7 @@ class Profile(models.Model):
     profile_picture = models.ImageField(
         upload_to='users/', default='users/user.png')
     bio = models.TextField(default="Welcome !")
-    neighbour=models.ForeignKey(Neighbour,null=True)
+    neighbour = models.ForeignKey('Neighbour',on_delete=models.CASCADE,null=True,blank=True)
     
 
     @classmethod
@@ -90,8 +90,8 @@ class Post(models.Model):
     post_hood = models.ForeignKey('Neighbour',on_delete=models.CASCADE)
     posted_on = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f'{self.title},{self.post_hood.neighborhood_name}'
+    # def __str__(self):
+        # return f'{self.title},{self.post_hood.neighborhood_name}'
 
 class Contact(models.Model):
     name = models.CharField(max_length=30)
