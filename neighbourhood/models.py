@@ -76,10 +76,10 @@ class Business(models.Model):
     def delete_business(self):
         self.delete()
 
-#     @classmethod
-#     def get_location_business(cls,location):
-#         business=Business.objects.filter(location_pk=location)
-#         return business
+    @classmethod
+    def get_location_business(cls,location):
+        business=Business.objects.filter(location_pk=location)
+        return business
 
    
 
