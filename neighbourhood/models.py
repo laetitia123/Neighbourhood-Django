@@ -15,18 +15,18 @@ class Neighbour(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='images')
     
 
-#     def create_neighbourhood(self):
+    def create_neighbourhood(self):
         
-#         self.save()
+        self.save()
 
     
-#     def delete_neighbourhood(self):
+    def delete_neighbourhood(self):
        
-#         self.delete()
-#     @classmethod
-#     def find_by_id(cls,id):
-#         hoods=cls.objects.filter(id=id)
-#         return hoods
+        self.delete()
+    @classmethod
+    def find_by_id(cls,id):
+        hoods=cls.objects.filter(id=id)
+        return hoods
 
     
 
