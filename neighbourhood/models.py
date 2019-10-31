@@ -40,8 +40,8 @@ class Profile(models.Model):
     Name = models.TextField(default="Any")
     profile_picture = models.ImageField(
         upload_to='users/', default='users/user.png')
-#     bio = models.TextField(default="Welcome !")
-#     neighbour=models.ForeignKey(Neighbour,null=True)
+    bio = models.TextField(default="Welcome !")
+    neighbour=models.ForeignKey(Neighbour,null=True)
     
 
 #     @classmethod
