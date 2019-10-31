@@ -62,9 +62,9 @@ class Comment(models.Model):
         comments=Comment.objects.filter(image_id=id)
         return comments
 
-# class Business(models.Model):
-#     own= models.CharField(max_length =60)
-#     bussiness= models.CharField(max_length =60)
+class Business(models.Model):
+    own= models.CharField(max_length =60)
+    bussiness= models.CharField(max_length =60)
 #     email= models.CharField(max_length =60)
 #     description = models.CharField(max_length =60)
 #     date_post= models.DateTimeField(max_length =60)
