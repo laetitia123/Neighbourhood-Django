@@ -9,16 +9,27 @@ class uploadimageForm(forms.Form):
          exclude=('user',)
 
 class ProfileForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['Name'].widget = forms.TextInput()
+    
 
     class Meta:
         model = Profile
-        fields = ('Name', 'profile_picture', 'bio')
+        fields = ('first_name', 'location', 'last_name',)
         # exclude=['user']
 
 
+class AddBusinessForm(forms.ModelForm):
+    # own= models.CharField(max_length =30)
+    # name= models.CharField(max_length =30)
+    # email= models.CharField(max_length =30)
+    # description = models.CharField(max_length =30)
+    # date_post= models.DateTimeField(max_length =20)
+    # location = models.CharField(max_length =60)
+    
+
+    class Meta:
+        model = Business
+        fields = ('owner', 'name', 'email','description','date_post','location')
+        # exclude=['user']
 
 
 

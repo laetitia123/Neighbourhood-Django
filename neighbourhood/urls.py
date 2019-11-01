@@ -8,17 +8,18 @@ urlpatterns=[
     
     url(r'myaccount/', views.mine, name='myaccount'),
     url(r'^article/(\d+)',views.article,name ='article'),
-    url(r'^new/article$', views.new_article, name='new-article'),
+    # url(r'^new/article$', views.new_article, name='new-article'),
 
-    url(r'comment/(\d+)/$', views.add_comment, name='comment'),
+    # url(r'comment/(\d+)/$', views.add_comment, name='comment'),
     url(r'myaccount/', views.mine, name='mine'),
    
-    url(r'edit/', views.edit, name='edit'),
-    url(r'search/(?P<name>.+)', views.find, name='save'),
+    # url(r'edit/', views.edit, name='edit'),
+    # url(r'search/(?P<name>.+)', views.find, name='save'),
     url(r'user/(?P<user_id>\d+)', views.user, name='aboutuser'),
     url(r'^search/',  views.search_results,name='search_results'),
-    url(r'^likes/(?P<id>\d+)',views.like_it,name="like"),
+    # url(r'^likes/(?P<id>\d+)',views.like_it,name="like"),
     url(r'^edit/profile$',  views.edit,name='edit'),
+    url(r'^business/',  views.business,name='business'),
     
 ]
 if settings.DEBUG:

@@ -15,12 +15,12 @@ class Neighbour(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='images')
     
 
-    def create_neighbourhood(self):
+    def create_neighbour(self):
         
         self.save()
 
     
-    def delete_neighbourhood(self):
+    def delete_neighbour(self):
        
         self.delete()
     @classmethod
@@ -37,17 +37,26 @@ class Neighbour(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile', null=True)
-    Name = models.TextField(default="Any")
+    first_name= models.TextField(default="Any")
+    last_name= models.TextField(default="Any")
+    location= models.TextField(max_length =60)
     profile_picture = models.ImageField(
         upload_to='users/', default='users/user.png')
-    bio = models.TextField(default="Welcome !")
-    neighbour = models.ForeignKey('Neighbour',on_delete=models.CASCADE,null=True,blank=True)
+    neighbour= models.ForeignKey('Neighbour',on_delete=models.CASCADE,null=True,blank=True)
     
 
-    @classmethod
-    def search(cls,username):
-        profiles=cls.objects.filter(user__username__icontains=username)
-        return profiles
+    def assign_neighbour(self,neighbour):
+        self.neighbour = neighbour
+        self.save()
+
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
+
+    def __str__(self):
+        return f'{self.user.username}'
 
 class Comment(models.Model):
     comment= models.TextField()
@@ -63,12 +72,14 @@ class Comment(models.Model):
         return comments
 
 class Business(models.Model):
-    own= models.CharField(max_length =60)
-    bussiness= models.CharField(max_length =60)
-    email= models.CharField(max_length =60)
-    description = models.CharField(max_length =60)
-    date_post= models.DateTimeField(max_length =60)
+    
+    owner= models.CharField(max_length =30)
+    name= models.CharField(max_length =30)
+    email= models.CharField(max_length =30)
+    description = models.CharField(max_length =30)
+    date_post= models.DateTimeField(max_length =20)
     location = models.CharField(max_length =60)
+    business= models.ForeignKey('Neighbour',on_delete=models.CASCADE)
     
     def create_business(self):
         self.save()

@@ -8,24 +8,29 @@
     <!-- welcome to -->
 <div class="row" style="margin-top:200px;">
     <div class="col-md-3"></div>
-    <div class="col-sm-4">    <img src="{{user_object.profile.profile_picture.url}}" stye="padding-left:400px"class="img-circle"  width="152" height="152"
-        class="rounded-circle border userimage">
+    <div class="col-sm-4">   
+         <!-- <img src="{{user_object.profile.profile_picture.url}}" stye="padding-left:400px"class="img-circle"  width="152" height="152" -->
+        <!-- class="rounded-circle border userimage"> -->
 </div>
         <div class="col-sm-4"style="margin-left:-200px;">
-    <a style="vertical-align: middle;color:black;font-size:34px;">{{user_object.username}}</a>
+    <!-- <a style="vertical-align: middle;color:black;font-size:34px;">{{user_object.username}}</a> -->
     <a href="{%  url 'edit' %}">
             <button class="editbtn" style="  background-color: Transparent;
             background-repeat:no-repeat;
         
             cursor:pointer;
             overflow: hidden;
-           height:40px;width:120px;color:black;">
-                <span class="edittext"style="font-size:16px" >Edit Profile</span>
+           height:40px;width:220px;color:black;">
+                <span class="edittext"style="font-size:16px" >Change Neighborhood</span>
             </button><i class="fa fa-sun-o"style="font-size:30px;color:black;margin-left:20px;" ></i>
         </a>
         <br>
-        <span>Bio  {{ user_object.profile.bio }}</span>
+        <span>Last-Name:{{ user_object.profile.last_name }}</span>
         <br>
+        <span> First-Name:{{ user_object.profile.first_name }}</span>
+        <br>
+        <span> Location:{{ user_object.profile.location }}</span>
+        <a href="{%  url 'business' %}"><button class="btn btn-outline-danger"> Add business</button></a>
         <!-- <strong >{{ users|length}}</strong> following</i>
         <strong >{{ users|length}}</strong> followers</i>
         <strong >{{ users|length}}</strong> posts</i> -->
@@ -50,12 +55,26 @@
         {% for user_object in pic_images %}
         <div class="col-md-4">
     <img src="{{user_object.image.url}}"class="image-responsive" width="350" style="height:200px;margin-top:20px">
+    <p>sssssssssssssss</p>{{user_object.location}}
 </a>
 </div>
 {% endfor %}
 
 </div>
 
-</div>         
+</div>    
+fhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+{% if business %}
+          <ul>
+              hhhhhhhhhhhhhhh
+            {% for business in business %}
+            <li>pppppp:{{business.name}}</li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <h5 class="center-align">You don't have any businesses yet</h5>
+          {% endif %}
+
+</ul>   
 </div>
 {% endblock %}

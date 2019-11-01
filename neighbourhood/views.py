@@ -38,65 +38,56 @@ def article(request,article_id):
     except DoesNotExist:
         raise Http404()
     return render(request,"all-news/article.html", {"article":article})
-@login_required(login_url='/accounts/login/')
-def new_article(request):
-    current_user = request.user
-    if request.method == 'POST':
-        form = uploadimageForm(request.POST, request.FILES)
-        if form.is_valid():
-            article = form.save(commit=False)
-            article.editor = current_user
-            article.save()
-        return redirect(news_today)
+# @login_required(login_url='/accounts/login/')
+# def new_article(request):
+#     current_user = request.user
+#     if request.method == 'POST':
+#         form = uploadimageForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             article = form.save(commit=False)
+#             article.editor = current_user
+#             article.save()
+#         return redirect(news_today)
 
-    else:
-        form = uploadimageForm()
-    return render(request, 'new_article.html', {"form": form})
+#     else:
+#         form = uploadimageForm()
+#     return render(request, 'new_article.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
 def mine(request,username=None):
     current_user=request.user
-    pic_images=Image.objects.filter(user=current_user)
+    pic_images=Neighbour.objects.filter(user=current_user)
     # profile=Profile.objects.filter(user=current_user).first()
     if not username:
       username=request.user.username
-      images = Image.objects.filter(name=username)
+      images = Neighbour.objects.filter(name=username)
       user_object = request.user
+    
+      businesses = Business.objects.filter( location= user).all()
+      emergencies = Contact.objects.filter( contacts= user).all()
+      neighborhoods = Neighbour.objects.all()
   
     return render(request, 'myprofile.html', locals(),{"pic_images":pic_images})
-# @login_required(login_url='/accounts/login/')
-# def edit(request):
-#     current_user = request.user
-#     if request.method == 'POST':
-#         print(request.FILES)
-#         new_profile = ProfileForm(request.POST,request.FILES,
-#             instance=request.user
-#         )
-#         if new_profile.is_valid():
-#             # new_profile.user= current_user
-#             # print(new_profile.user)
-#             new_profile.save()
-#             print(new_profile.fields)
-#             # print(new_profile.fields.profile_picture)
-#             return redirect('myaccount')
-#     else:
-#         new_profile = ProfileForm()
-#     return render(request, 'edit.html', {"new_profile":new_profile})
-    
+
 @login_required(login_url='/accounts/login/')
 def edit(request):
     current_user=request.user
+    profile = Profile.objects.filter(user=current_user)
     if request.method=='POST':
         form=ProfileForm(request.POST,request.FILES)
         if form.is_valid():
-            image=form.save(commit=False)
-            image.user=current_user
-            image.save()
-        return redirect('newsToday')
+            last_name=form.save(commit=False)
+            last_name.user=current_user
+            last_name.save()
+            return redirect('mine')
     else:
-        form=ProfileForm()
-    return render(request,'edit.html',{"form":form})
+         form =ProfileForm()
 
+    businesses = Business.objects.filter( location= user).all()
+    emergencies = Contact.objects.filter( contacts= user).all()
+    neighborhoods = Neighbour.objects.all()
+
+    return render(request,'edit.html',{"form":form,"businesses":businesses,"emergencies":emergencies," neighborhoods": neighborhoods})
 
 @login_required(login_url='/accounts/login/')
 def user(request, user_id):
@@ -108,31 +99,22 @@ def user(request, user_id):
    
     return render(request, 'profile.html', locals())
 
-@login_required(login_url='/accounts/login/')
-def find(request, name):
-    results = Profile.find_profile(name)
-    return render(request, 'searchresults.html', locals())
-
-@login_required(login_url='/accounts/login/')
-def add_comment(request, image_id):
-    current_user=request.user
-    image_item=Image.objects.filter(id=image_id).first()
-    prof=Profile.objects.filter(user=current_user.id).first()
-
-  
+def business(request):
+    user = User.objects.filter(id = request.user.id).first()
+    profile = Profile.objects.filter(user = user).first()
     if request.method == 'POST':
-        form = CommentForm(request.POST,request.FILES)
+        form = AddBusinessForm(request.POST)
         if form.is_valid():
-            comment = form.save(commit=False)
-            comment.user = request.user.profile
-            comment.post_by=prof
-            comment.photo = image_item
-        
-            comment.save()
-            return redirect("newsToday")
+            business = Business(name = request.POST['name'],owner = user,business_neighborhood = profile.neighborhood,email=request.POST['email'])
+            business.save()
+        return redirect('mine')
     else:
-        form=CommentForm()
-    return render(request,'comment.html',{"form":form,"image_id":image_id})
+         form = AddBusinessForm()
+    return render(request,'business.html',{'form':form})
+
+
+
+
 
 
 def search_results(request):
@@ -147,9 +129,3 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
-def like_it(request,id):
-     likes=1
-     image=Image.objects.get(id=id)
-     image.likes=image.likes+1
-     image.save()
-     return redirect("newsToday")
