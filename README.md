@@ -9,16 +9,7 @@ the user has to log in first and to registration to his hood so that he can be a
 * do all installation required
 * do run app with (python3.6 manage.py runserver)
 
-  ### API 
-
-    Install pip install djangorestframework
-    download Postman
-    crate a serializer file
-    This is the token :"d0eb96d4b70c17e44b10064a4bf5297cf095fc7a"
-    project api  url :http://127.0.0.1:8000/api/merch/
-    profile api url: http://127.0.0.1:8000/api/merchpro/
-
-
+  
 
 
 
