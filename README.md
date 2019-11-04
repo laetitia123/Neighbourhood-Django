@@ -59,4 +59,4 @@ the user has to log in first and to registration to his hood so that he can be a
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details --> 
+This project is licensed under the MIT License 
