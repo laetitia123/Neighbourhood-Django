@@ -9,7 +9,7 @@ the user has to log in first and to registration to his hood so that he can be a
 * do all installation required
 * do run app with (python3.6 manage.py runserver)
 
- <!-- ### API 
+  ### API 
 
     Install pip install djangorestframework
     download Postman
