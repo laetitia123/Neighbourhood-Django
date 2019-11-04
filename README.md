@@ -1,4 +1,4 @@
- # Award-Django-App
+ # Neighborhood-App
 
 <!-- This project will help users to view others project(posted project) and be able to vote
 for others project,user will also be able to make coment on the project.
