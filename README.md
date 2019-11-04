@@ -2,14 +2,14 @@
 
 This project will help users to view activities in his/her hood.
 the user has to log in first and to registration to his hood so that he can be able to view all activities  around the hood.
-<!-- 
+ 
 ## Getting Started
 * Go to Github account open deployment link at the top 
 * or clone ( typr git clone link to github  in terminal)
 * do all installation required
 * do run app with (python3.6 manage.py runserver)
 
- ### API 
+ <!-- ### API 
 
     Install pip install djangorestframework
     download Postman
@@ -60,4 +60,4 @@ https://awardlaety.herokuapp.com
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details --> -->
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details --> 
