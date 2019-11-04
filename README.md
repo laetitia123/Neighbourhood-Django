@@ -42,9 +42,9 @@ the user has to log in first and to registration to his hood so that he can be a
 >BDD
 
   * A user will be able to see to sign in and sign up
-  * A user, will be able  to see projects post by users
-  * A user,  will be able to comment on a project
-  * A user,  will be able to vote a project 
+  * A user, will be able  to view the activities in the hood he\she is        leaving
+  * A user,  will be able to add a business
+  * A user,  will be ab
   * A user wilbe able to view the  project in full  by clicking  on view site button.
 
 ## Deployment
