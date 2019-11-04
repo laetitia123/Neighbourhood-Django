@@ -1,9 +1,7 @@
  # Neighborhood-App
 
-<!-- This project will help users to view others project(posted project) and be able to vote
-for others project,user will also be able to make coment on the project.
-user have to be logged in to view all functionality.  -->
-
+This project will help users to view activities in his/her hood.
+the user has to log in first and to registration to his hood so that he can be able to view all activities  around the hood.
 <!-- 
 ## Getting Started
 * Go to Github account open deployment link at the top 
