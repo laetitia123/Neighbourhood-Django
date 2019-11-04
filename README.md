@@ -9,7 +9,8 @@ the user has to log in first and to registration to his hood so that he can be a
 * do all installation required
 * do run app with (python3.6 manage.py runserver)
 
-  ### Installing
+### Installing
+
      linux instalation 
      update linux :sudo apt-get update
      intall paython 3.6: sudo apt-get install python3.6
